@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next-on-pages",
+    "build": "next build",
     "start": "next start",
+    "lint": "next lint",
     "deploy": "wrangler pages deploy",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
