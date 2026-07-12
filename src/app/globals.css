@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* 打字机效果 */
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  animation: typing 3s steps(60, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgba(255, 255, 255, 0.75) }
+}
+
+/* 角色卡翻转动画 */
+.role-card-flip {
+  perspective: 1000px;
+}
+
+.role-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.role-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.role-card-front,
+.role-card-back {
+  backface-visibility: hidden;
+}
+
+.role-card-back {
+  transform: rotateY(180deg);
+}
+
+/* 叙述面板 */
+.narrative-panel {
+  background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #111827 100%);
+}
+
+/* 卧底游戏风格 */
+.undercover-theme {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+}
+
+/* 倒计时圆环动画 */
+.countdown-ring {
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 1s linear;
+}

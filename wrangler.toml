@@ -1,0 +1,28 @@
+﻿name = "multigame-hub"
+pages_build_output_dir = ".vercel/output/static"
+compatibility_date = "2026-07-12"
+compatibility_flags = ["nodejs_compat"]
+
+# D1 数据库绑定
+[[d1_databases]]
+binding = "DB"
+database_name = "multigame"
+database_id = "multigame-db-id"
+
+# Durable Object 绑定
+[[durable_objects.bindings]]
+name = "GAME_ROOM"
+class_name = "GameRoom"
+
+# DO 迁移标记
+[[migrations]]
+tag = "v1"
+new_classes = ["GameRoom"]
+
+# 环境变量
+[vars]
+AI_BASE_URL = ""
+AI_API_KEY = ""
+AI_MODEL = "gpt-4o"
+AI_TEMPERATURE = "0.8"
+AI_MAX_TOKENS = "2000"

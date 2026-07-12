@@ -1,0 +1,8 @@
+﻿node_modules/
+.next/
+.mf/
+dist/
+.dev.vars
+*.db
+*.db-journal
+migrations/
