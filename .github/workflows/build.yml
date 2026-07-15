@@ -21,6 +21,13 @@ jobs:
         
       - name: Build with next-on-pages
         run: npm run build:pages
+
+      - name: Deploy Durable Object Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --config wrangler.do.toml
         
       - name: Upload build artifact
         uses: actions/upload-artifact@v4

@@ -668,3 +668,9 @@ export class GameRoom extends DurableObject {
     ws.send(JSON.stringify(stateMsg));
   }
 }
+
+export default {
+  fetch() {
+    return new Response("GameRoom Durable Object Worker", { status: 404 });
+  },
+};
