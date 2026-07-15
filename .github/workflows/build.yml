@@ -1,4 +1,4 @@
-name: Build for Cloudflare Pages
+name: Deploy to Cloudflare Pages
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
         run: npm install
         
       - name: Build with next-on-pages
-        run: npx @cloudflare/next-on-pages@latest
+        run: npm run build:pages
         
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -28,3 +28,10 @@ jobs:
           name: cloudflare-pages-build
           path: .vercel/output/static/**
           if-no-files-found: error
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy .vercel/output/static --project-name=multigame-hub --branch=main

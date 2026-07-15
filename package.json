@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:pages": "next-on-pages",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "wrangler pages deploy",
+    "deploy": "wrangler pages deploy .vercel/output/static --project-name multigame-hub",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "wrangler d1 execute multigame --local --file=./migrations/0000_init.sql"
