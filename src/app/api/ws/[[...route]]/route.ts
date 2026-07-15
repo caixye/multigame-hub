@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 // Next.js 15: params 是 Promise
 export async function GET(
   request: Request,
@@ -18,7 +16,6 @@ export async function GET(
   return doStub.fetch(request);
 }
 
-// 支持 POST（非 WebSocket 的 REST API 调用）
 export async function POST(
   request: Request,
   { params }: { params: Promise<{ route: string[] }> }

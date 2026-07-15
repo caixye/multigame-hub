@@ -1,16 +1,15 @@
-﻿export const runtime = "edge";
-
 import { verifyJWT, getTokenFromHeader } from "@/lib/auth";
 import { createDB } from "@/db";
 import { rooms } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
+
+export const runtime = "edge";
 
 export async function GET(request: Request) {
   const env = (globalThis as any).env || (request as any).env;
   const db = createDB(env.DB);
 
   const roomList = await db.select().from(rooms).where(eq(rooms.status, "WAITING")).orderBy(desc(rooms.createdAt)).all();
-
   return Response.json(roomList);
 }
 

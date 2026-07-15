@@ -1,9 +1,9 @@
-﻿export const runtime = "edge";
-
 import { verifyJWT, getTokenFromHeader } from "@/lib/auth";
 import { createDB } from "@/db";
 import { aiConfigs } from "@/db/schema";
 import { eq } from "drizzle-orm";
+
+export const runtime = "edge";
 
 export async function GET(request: Request) {
   const token = getTokenFromHeader(request);

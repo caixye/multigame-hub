@@ -1,9 +1,9 @@
-﻿export const runtime = "edge";
-
 import { signJWT, hashPassword } from "@/lib/auth";
 import { createDB } from "@/db";
 import { users } from "@/db/schema";
 import { eq } from "drizzle-orm";
+
+export const runtime = "edge";
 
 export async function POST(request: Request) {
   try {

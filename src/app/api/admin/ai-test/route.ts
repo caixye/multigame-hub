@@ -1,6 +1,6 @@
-﻿export const runtime = "edge";
-
 import { verifyJWT, getTokenFromHeader } from "@/lib/auth";
+
+export const runtime = "edge";
 
 export async function POST(request: Request) {
   const token = getTokenFromHeader(request);
